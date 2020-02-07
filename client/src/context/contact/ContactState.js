@@ -1,4 +1,4 @@
-import React, { userReducer } from 'react';
+import React, { useReducer } from 'react';
 import uuid from 'uuid'; // for generating random id
 import ContactContext from './contactContext';
 import contactReducer from './contactReducer';
@@ -30,16 +30,23 @@ const ContactState = props => {
         type: 'personnal'
       },
       {
-        id: 1,
+        id: 3,
         name: 'Harry White',
         email: 'harry@gmail.com',
         phone: '111-111-3333',
+        type: 'professional'
+      },
+      {
+        id: 4,
+        name: 'Barry White',
+        email: 'barry@gmail.com',
+        phone: '211-211-3333',
         type: 'professional'
       }
     ]
   };
 
-  const [state, dispatch] = userReducer(contactReducer, initialState);
+  const [state, dispatch] = useReducer(contactReducer, initialState);
 
   // Add contact
 
