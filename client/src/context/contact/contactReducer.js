@@ -32,6 +32,16 @@ export default (state, action) => {
         ...state,
         current: null
       };
+    case UPDATE_CONTACT:
+      return {
+        ...state,
+        contacts: state.contacts.map(contact =>
+          // if contact match with the contact in the payload,
+          // i replace the contact with the new value
+          // else i just return the contact original
+          contact.id === action.payload.id ? action.payload : contact
+        )
+      };
     default:
       return;
   }
