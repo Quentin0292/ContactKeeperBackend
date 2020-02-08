@@ -1,6 +1,7 @@
 import React from 'react';
 import Contacts from '../contacts/Contacts';
 import ContactForm from '../contacts/ContactForm';
+import ContactEditForm from '../contacts/ContactEditForm';
 
 const Home = () => {
   return (
