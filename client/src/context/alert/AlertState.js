@@ -4,7 +4,7 @@ import AlertContext from './alertContext';
 import alertReducer from './alertReducer';
 import { SET_ALERT, REMOVE_ALERT } from '../types';
 
-const AuthState = props => {
+const AlertState = props => {
   const initialState = [];
 
   const [state, dispatch] = useReducer(alertReducer, initialState);
@@ -32,4 +32,4 @@ const AuthState = props => {
   );
 };
 
-export default AuthState;
+export default AlertState;
