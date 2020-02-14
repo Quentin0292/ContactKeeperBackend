@@ -73,8 +73,30 @@ const AuthState = props => {
   };
 
   // login user
-  const loginUser = () => {
-    console.log('login user ');
+  const login = async formData => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    };
+
+    try {
+      const res = await axios.post('/api/auth', formData, config);
+
+      dispatch({
+        type: LOGIN_SUCCESS,
+        // res.data = token
+        payload: res.data
+      });
+
+      loadUser();
+    } catch (err) {
+      dispatch({
+        type: LOGIN_FAIL,
+        // msg come from auth routes in my backend
+        payload: err.response.data.msg
+      });
+    }
   };
 
   // logout
@@ -99,7 +121,7 @@ const AuthState = props => {
         error: state.error,
         register,
         loadUser,
-        loginUser,
+        login,
         logout,
         clearErrors
       }}
